@@ -1,0 +1,45 @@
+<div
+  class="repo-card"
+  [ngClass]="{
+    'popular': repository.stargazers_count > popularityThreshold
+  }"
+  [appHighlight]="'#0969da'"
+>
+
+  <div class="repo-title">
+    <a [href]="repository.html_url" target="_blank">
+      {{ repository.name }}
+    </a>
+  </div>
+
+  <div class="repo-description">
+    {{ repository.description || 'No description available.' | truncate:120 }}
+  </div>
+
+  <div class="repo-meta">
+
+    <span class="language" [ngSwitch]="repository.language">
+      <span *ngSwitchCase="'TypeScript'">🟦 TypeScript</span>
+      <span *ngSwitchCase="'JavaScript'">🟨 JavaScript</span>
+      <span *ngSwitchCase="'HTML'">🟥 HTML</span>
+      <span *ngSwitchDefault>{{ repository.language || 'Unknown' }}</span>
+    </span>
+
+    <span class="stars">
+      ⭐ {{ repository.stargazers_count }}
+    </span>
+
+    <span class="forks"
+          [ngStyle]="{
+            'font-weight': repository.forks_count > 10 ? '600' : 'normal'
+          }">
+      🍴 {{ repository.forks_count }}
+    </span>
+
+  </div>
+
+  <div class="repo-updated">
+    Updated {{ repository.updated_at | date:'mediumDate' }}
+  </div>
+
+</div>

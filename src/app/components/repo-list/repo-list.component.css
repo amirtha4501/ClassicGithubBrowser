@@ -1,0 +1,26 @@
+.repo-section {
+  margin-top: 20px;
+}
+
+.repo-header {
+  margin-bottom: 15px;
+}
+
+.repo-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #24292f;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  font-weight: 500;
+  color: #57606a;
+}
+
+.empty-state {
+  padding: 20px;
+  text-align: center;
+  color: #57606a;
+}

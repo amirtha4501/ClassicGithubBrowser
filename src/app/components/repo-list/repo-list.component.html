@@ -1,0 +1,23 @@
+<div *ngIf="selectedUser" class="repo-section">
+
+  <div class="repo-header">
+    <h2>{{ selectedUser }}'s Repositories</h2>
+  </div>
+
+  <div *ngIf="repos$ | async as repos; else loading">
+
+    <div *ngIf="repos.length === 0" class="empty-state">
+      No repositories found.
+    </div>
+
+    <div *ngFor="let repo of repos">
+      <app-repo-card [repository]="repo"></app-repo-card>
+    </div>
+
+  </div>
+
+  <ng-template #loading>
+    <div class="loading">Loading repositories...</div>
+  </ng-template>
+
+</div>

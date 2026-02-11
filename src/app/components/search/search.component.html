@@ -1,0 +1,10 @@
+<div class="search-card">
+  <input
+    type="text"
+    placeholder="Enter GitHub username..."
+    [(ngModel)]="username"
+    (keyup.enter)="onSearch()"
+  />
+
+  <button (click)="onSearch()">Search</button>
+</div>
