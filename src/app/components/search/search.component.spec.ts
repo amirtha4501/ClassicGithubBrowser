@@ -2,13 +2,16 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchComponent } from './search.component';
 
+import { FormsModule } from '@angular/forms';
+
 describe('SearchComponent', () => {
   let component: SearchComponent;
   let fixture: ComponentFixture<SearchComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SearchComponent]
+      declarations: [SearchComponent],
+      imports: [FormsModule]
     });
     fixture = TestBed.createComponent(SearchComponent);
     component = fixture.componentInstance;
@@ -17,5 +20,19 @@ describe('SearchComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should emit searchUser event when username is not empty', () => {
+    spyOn(component.searchUser, 'emit');
+    component.username = 'octocat';
+    component.onSearch();
+    expect(component.searchUser.emit).toHaveBeenCalledWith('octocat');
+  });
+
+  it('should not emit searchUser event when username is empty', () => {
+    spyOn(component.searchUser, 'emit');
+    component.username = '  ';
+    component.onSearch();
+    expect(component.searchUser.emit).not.toHaveBeenCalled();
   });
 });

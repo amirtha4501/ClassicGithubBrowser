@@ -244,6 +244,32 @@ dist/
 ```
 
 # 🧪 Unit Testing
-```
+
+This project uses **Jasmine** as the testing framework and **Karma** as the test runner. The test suites cover services, components, pipes, and directives.
+
+### Run Tests (Interactive)
+To run the tests in a browser and watch for changes:
+```bash
 ng test
+```
+
+### Run Tests (Single Run / CI)
+To run the tests once in a headless chrome browser (useful for validation):
+```bash
+ng test --no-watch --browsers=ChromeHeadless
+```
+
+### What's Covered?
+- **Services**: `GithubService` tested with `HttpClientTestingModule` for API interaction logic.
+- **Components**: 
+  - `SearchComponent`: Logic for event emission on user input.
+  - `RepoListComponent`: Interaction with the data service using mocks.
+  - `RepoCardComponent`: UI logic like `ngClass` for popular repos and `ngStyle` for fork highlights.
+- **Pipes**: `TruncatePipe` logic for string manipulation.
+- **Directives**: `HighlightDirective` for DOM styling verification.
+
+### Validation
+A successful test run should report:
+```text
+TOTAL: 21 SUCCESS
 ```
