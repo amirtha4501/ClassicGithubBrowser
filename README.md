@@ -1,16 +1,18 @@
 # GithubBrowser
 
-An Angular 16 (Classic Syntax) application to search and explore repositories of GitHub users and organizations using the public GitHub REST API.
+An Angular 18 (Classic Syntax) application to search and explore repositories of GitHub users and organizations using the public GitHub REST API.
 
-This project demonstrates Angular Core Concepts using traditional structural directives and decorators (pre-modern control flow syntax).
+This project demonstrates Angular Core Concepts using traditional structural directives and decorators while running on the latest Angular version.
 
-> Generated with Angular CLI 16.2.5
+![alt text](./src/assets/image.png)
+
+> Generated with Angular 18.2.14 (CLI 18.2.21)
 
 ---
 
 # 📌 Purpose of This Project
 
-This project is built as a **Hands-On Training Demo** for:
+This project is built as a **Hands-On** for:
 
 ✔ Angular Core Fundamentals  
 ✔ Component Architecture  
@@ -20,13 +22,13 @@ This project is built as a **Hands-On Training Demo** for:
 ✔ ViewChild usage (Decorator-based)  
 ✔ Classic Structural Directives  
 
-⚠️ This project intentionally avoids modern Angular control flow (`@for`, `@if`, signals, etc.) because those are demonstrated in a separate latest Angular project.
+⚠️ Even though this project uses Angular 18, it intentionally avoids the new control flow syntax (`@for`, `@if`, etc.) to focus on mastering traditional structural directives. Modern features like signals and new control flow are demonstrated in a separate project.
 
 ---
 
 # 🚀 Tech Stack
 
-- Angular 16.2.5
+- Angular 18.2.14
 - TypeScript
 - RxJS
 - GitHub REST API
@@ -111,9 +113,9 @@ github-browser/
 
 ---
 
-# 🏗 Training Coverage Mapping (Slide Alignment)
+# 🏗 Concept Coverage Mapping
 
-This hands-on project aligns with the training topics:
+This hands-on project aligns with the topics:
 
 ### 1️⃣ Angular Environment & Setup
 - Angular CLI usage
@@ -260,7 +262,7 @@ ng test --no-watch --browsers=ChromeHeadless
 ```
 
 ### What's Covered?
-- **Services**: `GithubService` tested with `HttpClientTestingModule` for API interaction logic.
+- **Services**: `GithubService` tested with `provideHttpClientTesting()` for API interaction logic.
 - **Components**: 
   - `SearchComponent`: Logic for event emission on user input.
   - `RepoListComponent`: Interaction with the data service using mocks.

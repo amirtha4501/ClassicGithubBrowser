@@ -2,10 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RepoListComponent } from './repo-list.component';
 
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { GithubService } from '../../services/github.service';
 
 import { of } from 'rxjs';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('RepoListComponent', () => {
   let component: RepoListComponent;
@@ -16,12 +17,14 @@ describe('RepoListComponent', () => {
     const spy = jasmine.createSpyObj('GithubService', ['getUserRepos']);
 
     TestBed.configureTestingModule({
-      declarations: [RepoListComponent],
-      imports: [HttpClientTestingModule],
-      providers: [
-        { provide: GithubService, useValue: spy }
-      ]
-    });
+    declarations: [RepoListComponent],
+    imports: [],
+    providers: [
+        { provide: GithubService, useValue: spy },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+});
     fixture = TestBed.createComponent(RepoListComponent);
     component = fixture.componentInstance;
     githubServiceSpy = TestBed.inject(GithubService) as jasmine.SpyObj<GithubService>;

@@ -1,7 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { GithubService } from './github.service';
 import { Repository } from '../models/repository.model';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('GithubService', () => {
   let service: GithubService;
@@ -9,9 +10,9 @@ describe('GithubService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [GithubService]
-    });
+    imports: [],
+    providers: [GithubService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+});
     service = TestBed.inject(GithubService);
     httpMock = TestBed.inject(HttpTestingController);
   });
